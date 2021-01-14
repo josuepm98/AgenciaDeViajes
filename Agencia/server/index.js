@@ -25,7 +25,6 @@ app.use(cors({origin: 'http://localhost:4200'}));
 app.use('/api', require('./routes/private.route'));
 app.use('/api/usuarios', require('./routes/usuarios.route'));
 
-app.use('/api/reservas', require('./routes/reservas.route'));
 
 /* SEGURIDAD
 const options = {
