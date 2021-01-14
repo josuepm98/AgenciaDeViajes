@@ -1,0 +1,29 @@
+<div class="col s7">
+    <table>
+        <thead>
+            <th>Tipo</th>
+            <th>Combustible</th>
+            <th>Marca</th>
+            <th>Precio</th>
+            <th>Fecha Inicial</th>
+            <th>Fecha Final</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let vehiculo of vehiculoService.vehiculos">
+                <td>{{ vehiculo.tipo }}</td>
+                <td>{{ vehiculo.combustible }}</td>
+                <td>{{ vehiculo.marca }}</td>
+                <td>{{ vehiculo.precio }}</td>
+                <td>{{ vehiculo.fechaIni }}</td>
+                <td>{{ vehiculo.fechaFin }}</td>
+                <td>
+                    <a (click)="reservarVehiculo">
+                        <i class="material-icons">Reservar</i>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+        

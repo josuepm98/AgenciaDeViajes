@@ -1,0 +1,26 @@
+<div class="col s7">
+    <table>
+        <thead>
+            <th>Check In</th>
+            <th>Check Out</th>
+            <th>Habitacion</th>
+            <th>Precio</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let hotel of hotelService.hoteles">
+                <td>{{ hotel.checkin }}</td>
+                <td>{{ hotel.checkout }}</td>
+                <td>{{ hotel.habitacion }}</td>
+                <td>{{ hotel.precio }}</td>
+                <td>
+                    <a (click)="reservarHotel">
+                        <i class="material-icons">Reservar</i>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+        
