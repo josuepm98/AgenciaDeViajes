@@ -9,7 +9,7 @@ export class HotelService {
 
   selectedHotel: Hotel;
   hoteles: Hotel[];
-  readonly URL_API = 'http://localhost:3300/api/hoteles';
+  readonly URL_API = 'http://192.168.100.42:3300/api/hoteles';
 
   constructor(private http: HttpClient) {
     this.selectedHotel = new Hotel();
