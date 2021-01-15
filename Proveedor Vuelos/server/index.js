@@ -19,7 +19,7 @@ app.set('port', process.env.PORT || 3100);
 
 app.use(morgan('dev'));
 app.use(express.json());
-app.use(cors({origin: 'http://192.168.100.42:4300'}));
+app.use(cors({origin: 'http://localhost:4300'}));
 
 /*
 //rutas
