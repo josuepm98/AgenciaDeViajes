@@ -3,7 +3,8 @@ const app = express();
 const cors = require('cors'); //middleware
 const morgan = require('morgan');
 // SEGURIDAD
-//const https = require('https');
+const fs = require('fs');
+const https = require('https');
 
 //base de datos en la nube
 var mongoose = require('mongoose');
@@ -19,7 +20,7 @@ app.set('port', process.env.PORT || 3100);
 
 app.use(morgan('dev'));
 app.use(express.json());
-app.use(cors({origin: 'http://localhost:4300'}));
+app.use(cors({origin: 'https://192.168.100.42:4300'}));
 
 /*
 //rutas
@@ -28,11 +29,6 @@ app.use('/api/usuarios', require('./routes/usuarios.route'));*/
 
 app.use('/api/vuelos', require('./routes/vuelo.route'));
 
-/* SEGURIDAD
-const options = {
-    key: fs.readFileSync('ruta_key/key.pem'),
-    cert: fs.readFileSync('ruta_cert/cert.cert')
-};*/
 
 //conectando base de datos en la nube
 mongoose.Promise = global.Promise;
@@ -44,13 +40,16 @@ mongoose.connect(URL, { useNewUrlParser: true })
 
 
 
-/*launching server*/
+/*launching server
 
 app.listen(app.get('port'), () => {
     console.log('Server on port', app.get('port'));
-});
-
-/* SEGURIDAD 
-https.createServer(app).listen(app.get('port'), () => {
-    console.log('Server on port', app.get('port'));
 });*/
+
+/* SEGURIDAD */
+https.createServer({
+    key: fs.readFileSync('privateKey.key'),
+    cert: fs.readFileSync('certificate.crt')
+    },app).listen(app.get('port'), () => {
+    console.log('Server on port', app.get('port'));
+});

@@ -32,7 +32,7 @@ export class BancoComponent implements OnInit {
     this.bancoService.reserva()
       .subscribe(
         res => {
-          M.toast({html: 'Transaccion realizada'})
+          M.toast({html: 'Transacción realizada'})
         },
         err => {
           M.toast({html: 'Operación cancelada'});

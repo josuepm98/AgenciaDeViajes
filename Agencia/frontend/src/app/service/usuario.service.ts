@@ -13,8 +13,8 @@ export class UsuarioService {
 
   selectedUsuario: Usuario;
   usuarios: Usuario[];
-  readonly URL_API = 'http://localhost:3000/api/usuarios';
-  readonly URL_API_HOME = 'http://localhost:3000/api/home';
+  readonly URL_API = 'https://192.168.100.42:3000/api/usuarios';
+  readonly URL_API_HOME = 'https://192.168.100.42:3000/api/home';
 
   constructor(private http: HttpClient) {
     this.selectedUsuario = new Usuario();

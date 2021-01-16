@@ -9,7 +9,7 @@ export class VueloService {
 
   selectedVuelo: Vuelo;
   vuelos: Vuelo[];
-  readonly URL_API = 'http://localhost:3100/api/vuelos';
+  readonly URL_API = 'https://192.168.100.42:3100/api/vuelos';
 
   constructor(private http: HttpClient) {
     this.selectedVuelo = new Vuelo();

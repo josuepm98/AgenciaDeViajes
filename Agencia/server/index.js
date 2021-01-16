@@ -3,7 +3,8 @@ const app = express();
 const cors = require('cors'); //middleware
 const morgan = require('morgan');
 // SEGURIDAD
-//const https = require('https');
+const fs = require('fs');
+const https = require('https');
 
 //base de datos en la nube
 var mongoose = require('mongoose');
@@ -12,25 +13,19 @@ var URL = 'mongodb+srv://josuepm98:Hercules10@agencia.ffqgr.mongodb.net/AgenciaD
 //Base de datos local
 //const { mongoose } = require('./database');
 
-//configuracion del server
+//configuracion del servernp
 app.set('port', process.env.PORT || 3000);
 
 //funciones middleware
 app.use(morgan('dev'));
 app.use(express.json());
-app.use(cors({origin: 'http://localhost:4200'}));
+app.use(cors({origin: 'https://192.168.100.42:4200'}));
 
 
 //rutas
 app.use('/api', require('./routes/private.route'));
 app.use('/api/usuarios', require('./routes/usuarios.route'));
 
-
-/* SEGURIDAD
-const options = {
-    key: fs.readFileSync('ruta_key/key.pem'),
-    cert: fs.readFileSync('ruta_cert/cert.cert')
-};*/
 
 //conectando base de datos en la nube
 mongoose.Promise = global.Promise;
@@ -42,13 +37,16 @@ mongoose.connect(URL, { useNewUrlParser: true })
 
 
 
-/*launching server*/
+/*launching server
 
 app.listen(app.get('port'), () => {
     console.log('Server on port', app.get('port'));
-});
-
-/* SEGURIDAD 
-https.createServer(app).listen(app.get('port'), () => {
-    console.log('Server on port', app.get('port'));
 });*/
+
+/* SEGURIDAD */
+https.createServer({
+    key: fs.readFileSync('privateKey.key'),
+    cert: fs.readFileSync('certificate.crt')
+    },app).listen(app.get('port'), () => {
+    console.log('Server on port', app.get('port'));
+});
