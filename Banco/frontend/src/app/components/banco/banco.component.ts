@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SelectMultipleControlValueAccessor } from '@angular/forms';
 import { Router } from '@angular/router';
 //import { NgForm } from '@angular/forms';
 import { Banco } from 'src/app/model/banco';
@@ -32,7 +33,8 @@ export class BancoComponent implements OnInit {
     this.bancoService.reserva()
       .subscribe(
         res => {
-          M.toast({html: 'Transacción realizada'})
+          M.toast({html: 'Transacción realizada'});
+          setTimeout(() => { window.location.href='https://192.168.100.42:4200/home'}, 1000);
         },
         err => {
           M.toast({html: 'Operación cancelada'});

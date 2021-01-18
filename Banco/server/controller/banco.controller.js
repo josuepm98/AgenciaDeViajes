@@ -1,8 +1,15 @@
+const { mongo } = require('mongoose');
 const Banco = require('../model/banco');
 
 const bancoController = {};
 
-bancoController.reserva = (req, res) => {
+bancoController.reserva = async(req, res) => {
+    const { cuenta , codigo} = req.body;
+
+    if(cuenta == null || codigo == null){
+        return res.status(401).send({status:"Introduce el código secreto"});
+    }
+
     var num = Math.floor(Math.random() * 10000); 
     if(num % 2 != 0){
         return res.status(401).send({status:"Operación cancelada"});
