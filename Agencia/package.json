@@ -17,7 +17,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.18",
     "morgan": "^1.10.0",
-    "openssl": "^1.1.0"
+    "openssl": "^1.1.0",
+    "stripe": "^8.131.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"

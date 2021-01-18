@@ -9,7 +9,7 @@ export class VehiculoService {
 
   selectedVehiculo: Vehiculo;
   vehiculos: Vehiculo[];
-  readonly URL_API = 'https://192.168.100.42:3200/api/vehiculos';
+  readonly URL_API = 'https://172.20.10.3:3200/api/vehiculos';
 
   constructor(private http: HttpClient) {
     this.selectedVehiculo = new Vehiculo();

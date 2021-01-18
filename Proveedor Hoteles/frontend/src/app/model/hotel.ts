@@ -4,6 +4,7 @@ export class Hotel {
     checkin: string;
     checkout: string;
     habitacion: string;
+    ciudad: string;
     precio: number;
 
     constructor(){

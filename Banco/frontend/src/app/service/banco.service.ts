@@ -9,7 +9,7 @@ export class BancoService {
 
   selectedBanco: Banco;
   bancos: Banco[];
-  readonly URL_API = 'https://192.168.100.42:3400/api/bancos';
+  readonly URL_API = 'https://172.20.10.3:3400/api/bancos';
 
   constructor(private http: HttpClient) {
     this.selectedBanco = new Banco();

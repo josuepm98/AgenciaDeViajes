@@ -13,7 +13,7 @@ import { CookieService } from 'ngx-cookie-service';
   
     selectedReserva: Reserva;
     reservas: Reserva[];
-    readonly URL_API = 'https://192.168.100.42:3100/api/reservas';
+    readonly URL_API = 'https://172.20.10.3/api/reservas';
   
     constructor(private http: HttpClient) {
       this.selectedReserva = new Reserva();

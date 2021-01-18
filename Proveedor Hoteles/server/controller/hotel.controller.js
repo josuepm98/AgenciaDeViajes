@@ -12,6 +12,7 @@ hotelController.crearHotel = async (req, res) => {
         checkin: req.body.checkin,
         checkout: req.body.checkout,
         habitacion: req.body.habitacion,
+        ciudad: req.body.ciudad,
         precio: req.body.precio
     });
     await hotel.save();

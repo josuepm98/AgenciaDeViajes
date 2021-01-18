@@ -20,7 +20,7 @@ app.set('port', process.env.PORT || 3000);
 app.use(morgan('dev'));
 //app.use(express.urlencoded({extended: false}));
 app.use(express.json());
-app.use(cors({origin: 'https://192.168.100.42:4200'}));
+app.use(cors({origin: 'https://172.20.10.3:4200'}));
 
 
 //rutas
@@ -35,6 +35,7 @@ mongoose.connect(URL, { useNewUrlParser: true })
         console.log('DB is connected')
     })
     .catch(err => console.error(err));
+
 
 
 

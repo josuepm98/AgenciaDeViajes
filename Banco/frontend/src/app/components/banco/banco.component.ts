@@ -34,7 +34,8 @@ export class BancoComponent implements OnInit {
       .subscribe(
         res => {
           M.toast({html: 'Transacción realizada'});
-          setTimeout(() => { window.location.href='https://192.168.100.42:4200/home'}, 1000);
+          M.toast({html: 'Volviendo a home...'});
+          setTimeout(() => { window.location.href='https://172.20.10.3:4200/home'}, 1500);
         },
         err => {
           M.toast({html: 'Operación cancelada'});
