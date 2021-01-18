@@ -15,7 +15,7 @@ usuarioController.loginUsuario = async(req, res) => {
     }
 
     const token = jwt.sign({_id: usuario._id}, 'secretkey');
-    return res.status(200).json({token})
+    return res.status(200).json({token});
 };
 
 

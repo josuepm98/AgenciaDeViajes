@@ -32,6 +32,10 @@ export class UsuarioService {
     return this.http.post<any>(this.URL_API + '/login', this.selectedUsuario);
   }
 
+  logoutUsuario(){
+    return localStorage.removeItem('token');
+  }
+
   getUsuarios(){
     return this.http.get(this.URL_API);
   }

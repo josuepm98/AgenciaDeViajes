@@ -23,4 +23,8 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/reservas']);
   }*/
 
+  logOut(){
+    this.usuarioService.logoutUsuario();
+  }
+
 }
