@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
 import { SelectMultipleControlValueAccessor } from '@angular/forms';
 import { Router } from '@angular/router';
 //import { NgForm } from '@angular/forms';
@@ -13,10 +13,11 @@ declare var M: any;
   styleUrls: ['./banco.component.css'],
   providers: [BancoService]
 })
-export class BancoComponent implements OnInit {
+export class BancoComponent implements AfterViewInit {
 
-  constructor(public bancoService: BancoService, public router: Router) { }
+  /*constructor(public bancoService: BancoService, public router: Router) { }
 
+  
   ngOnInit() {
     this.getBancos();
   }
@@ -41,6 +42,40 @@ export class BancoComponent implements OnInit {
           M.toast({html: 'Operación cancelada'});
         }
       )
+  }*/
+
+  @ViewChild('cardInfo') cardInfo: ElementRef;
+  cardError: string;
+  card: any;
+
+  constructor(
+    private ngZone: NgZone,
+    private bancoService: BancoService
+  ){}
+
+  ngAfterViewInit(){
+    this.card = elements.create('card');
+    this.card.mount(this.cardInfo.nativeElement);
+    this.card.addEventListener('change', this.onChange.bind(this));
+  }
+
+  onChange(error){
+    if(error){
+      this.ngZone.run(()=> this.cardError = error.message);
+    }
+    else{
+      this.ngZone.run(()=> this.cardError = "");
+    }
+  }
+
+  async onClick(){
+    const{ token, error } = await stripe.createToken(this.card);
+    if(token){
+      await this.bancoService.charge(48, token.id);
+    }
+    else{
+      this.ngZone.run(()=> this.cardError = error.message);
+    }
   }
 
 }

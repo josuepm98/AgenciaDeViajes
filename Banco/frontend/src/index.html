@@ -6,6 +6,11 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    const stripe = Stripe('pk_test_51IBJYMDIW5cOTGjacOeVZ28MDzAkBwV8lWK5mrqVH8SZXXtSVeFBBnXIjMU3jY6I43KuQAdNVeID4kjNCIoFf5Dc00cduVpZNX');
+    const elements = stripe.elements();
+  </script>
    <!-- Compiled and minified CSS -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
    <!-- MATERIAL ICONS -->
